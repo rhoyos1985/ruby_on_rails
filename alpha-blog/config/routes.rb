@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   #Method(GET,POST,UPDATE;DELETE) PATH to CONTROLLER#ACTION 
   root 'pages#home'
-
   get 'about', to: 'pages#about'
+
+  resources :articles
 end
