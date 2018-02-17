@@ -6,6 +6,7 @@
 #
 default: &default
   adapter: sqlite3
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -21,5 +22,9 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: alpha_blog_production
+  username: alpha_blog
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
