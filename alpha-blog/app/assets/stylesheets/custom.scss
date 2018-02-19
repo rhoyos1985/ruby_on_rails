@@ -1,3 +1,117 @@
-.center{
-    text-align: center;
+html,body{
+  font-family: 'Istok Web', sans-serif;
+  font-size: 14px;
+  font-weight: 400px;
+  line-height: 20px;
 }
+
+.alb_head{
+  border: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  min-height: 64Px;
+  max-height: 1000px;
+  position: relative;
+  width: 100%;
+}
+
+.alb_img_height {
+  height: 300px;
+}
+
+.alb_layout_header_row{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 64px;
+  justify-content: center;
+  margin: 0;
+}
+
+.alb_logo {
+  background-color: #ffffff;
+  background-size: cover;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin: 15px auto;
+}
+
+.alb_logo_title {
+  display: block;
+  position: relative;
+  font-size: 5em;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.alb_site_logo_row{
+  min-height:200px;
+}
+
+.alb_site_description{
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 10px;
+  @extend .white-text;
+}
+
+.alb_valign_center{
+  justify-content: center;
+}
+
+.center{
+ text-align: center;
+} 
+
+.card > .card-action > .alb_card_item{
+  color: #01579b !important;
+
+  &:hover{
+    color: #0277bd !important;
+  }
+}
+
+.font_family_GHal{
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.alb_font_family_color{
+  @extend .font_family_GHal, .blue-text, .text-darken-3;
+}
+
+

@@ -1,9 +1,21 @@
-<nav>
-  <div class="nav-wrapper">
-    <%= link_to 'Alpha Blog', root_path, class: "brand-logo" %>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><%= link_to 'Alpha-blog', articles_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-    </ul>
+<header class="alb_head blue darken-3">
+  <div class="row alb_layout_header_row alb_site_logo_row">
+    <span class="alb_logo_title alb_font_family_color">
+      <div class="valign-wrapper alb_valign_center alb_logo">
+        <span class="alb_logo_item">AB</span>
+      </div>
+      <span class="alb_site_description">Blog Ruby on Rails with Materialize</span>
+    </span>
   </div>
-</nav>
+  <nav class=" blue darken-4" >
+    <div class="container"> 
+      <div class="nav-wrapper">
+        <%= link_to 'Alpha Blog', root_path, class: "brand-logo font_family_GHal" %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to 'Alpha-blog', articles_path %></li>
+          <li><%= link_to 'About', about_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
