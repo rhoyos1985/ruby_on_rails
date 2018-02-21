@@ -1,25 +1,43 @@
-<% if @article.errors.any?  %>
-<h2>The following errors prevented the article getting crated </h2>
-<ul>
-    <%= @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-</ul>
-<% end %>
+<% 
+  msg_title = ""
+  msg_description = ""
+  css_invalid_title = ""
+  css_invalid_desc = ""
 
-<%= form_for @article do |f| %>
-    <p>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %> <br />
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-    <p>
-        <%= link_to "Articles", articles_path %>
-    </p>
-<% end %>
+  if @article.errors.include?(:title)
+    msg_title = @article.errors.messages[:title].uniq.join(', ')
+    css_invalid_title = "invalid"
+  end
+
+  if @article.errors.include?(:description)
+    msg_description = @article.errors.messages[:description].uniq.join(', ')
+    css_invalid_desc = "invalid"
+  end 
+
+%>
+<div class="row">
+  <div class="col s12">
+    <%= form_for(@article, :html => {role: "form"}) do |f| %>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <%= f.text_field :title, placeholder: "Title of article", class: "validate #{css_invalid_title}", autofocus: true %>
+          <label for="title" data-error="<%= msg_title %>">Title</label> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <%= f.text_area :description, class: "materialize-textarea validate #{css_invalid_desc}", autofocus: true %>
+          <label for="description" data-error="<%= msg_description %>">Description</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m4">
+          <%= f.submit class: "btn btn-large blue" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col s4 m4 offset-m4"><%= link_to "Cancel request and return to articles listing", articles_path %></div>
+    </div>
+  </div>
+</div>
