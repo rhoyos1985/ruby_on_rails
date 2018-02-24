@@ -1,5 +1,19 @@
-<h1>Showing selected article</h1>
-
-<p>Title: <%= @article.title %></p>
-<p>Title: <%= @article.description %></p>
-<p><%= link_to "Edit", edit_article_path(@article) %> <%= link_to "Articles", articles_path %></p>
+<div class="row">
+  <div class="col s12 m10">
+    <h2 class="alb_article_title"> <%= @article.title %> </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m10">
+    <%= simple_format(@article.description, class: "alb_article_content") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m10">
+    <%= link_to "Edit this article", edit_article_path(@article), class: "btn wave-effect wave-light blue" %> 
+    <%= link_to "Delete this article", article_path(@article), method: :delete, 
+              data: { confirm: "Are you sure you want to delete the article?" },
+              class: "btn wave-effect wave-light red" %>
+    <%= link_to "View all articles", articles_path, class: "btn wave-effect wave-light green" %>
+  </div>
+</div>

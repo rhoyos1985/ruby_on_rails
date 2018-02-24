@@ -1,0 +1,10 @@
+.alb_article_title{
+  font-weight: bold;
+  @extend .alb_no_margin_bottom;
+  text-align: center;
+}
+
+.alb_article_content{
+  font-size: 1.5em;
+  @extend .alb_no_margin;
+}

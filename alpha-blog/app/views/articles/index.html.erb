@@ -1,23 +1,21 @@
-<h1>Listing all Articles </h1>
-<p>
-    <%= link_to "Create new article", new_article_path %>
-</p>
-<table>
-    <tr>
-        <th>
-            Title
-        </th>
-        <th>
-            Description
-        </th>
-    </tr>
-    <% @articles.each do |article| %>
-    <tr>
-        <td> <%= article.title %> </td>
-        <td> <%= article.description %> </td>
-        <td> <%= link_to "Edit", edit_article_path(article) %> </td>
-        <td> <%= link_to "Show", article_path(article) %> </td>
-        <td> <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %> </td>
-    </tr>
+<div class="row">
+  <% @articles.each do |article| %>
+  <div class="col s12 m6">
+    <div class="card blue darken-1">
+      <div class="card-content white-text">
+        <span class="card-title"> <%= article.title %> </span>
+        <p> <%= article.description %> </p>
+      </div>
+      <div class="card-action">
+        <%= link_to "Show more", article_path(article), class: "btn wave-effect waves-light blue darken-4 white-text" %> 
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="col s12 m6">
+    <%= link_to(new_article_path, class: "btn-floating btn-large waves-effect waves-light blue") do  %>
+      <i class="material-icons">add</i>
     <% end %>
-</table>
+  </div>
+</div>
+<div></div>

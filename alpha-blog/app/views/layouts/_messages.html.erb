@@ -1,11 +1,28 @@
-<div class="row"> 
-   <div class="col s10 m10 offset-2">
-      <% flash.each do |name, msg| %>
-        <div class="alert <%= name %>">
-          <a href="#" class="close" data-dismiss="alert"><i class="material-icons">close</i></a>
-          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+<% flash.each do |name, msg| %>
+<div class="row">
+  <div class="col s8 m8 offset-m2">
+    <div class="alert <%= name %>">
+      <div class="row alb_no_margin_bottom">
+        <div class="col s1 m1">
+          <i class="material-icons alert_icon">error</i>
         </div>
-      <% end %>   
+        <div class="col s11 m11 alb_no_padding_left">
+          <div class="row alb_no_margin_bottom">
+            <div class="col s11 m11 alb_no_padding_left">
+              <h5 class="alert_title">Error</h5>
+            </div>
+            <div class="col s1 m1 alb_no_padding">
+              <a href="#" class="close right" data-dismiss="alert"><i class="material-icons">close</i></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m12 alb_no_padding_left">
+              <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-
+<% end %>

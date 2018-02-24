@@ -1,0 +1,32 @@
+.error {
+  @extend .red, .lighten-2;
+  border: 1px solid #b71c1c;
+  @extend .red-text, .text-darken-4;
+  
+  i {
+    @extend .red-text, .text-darken-4;
+    padding-top: 0.2rem;
+  }
+
+  .alert_icon {
+    font-size: 3rem;
+  }
+
+}
+
+.success {
+  @extend .green, .lighten-2;
+  border: 1px solid #1b5e20;
+  @extend .green-text, .text-darken-4;
+  
+  i {
+    @extend .green-text, .text-darken-4;
+    padding-top: 0.2rem;
+  }
+
+  .alert_icon {
+    font-size: 3rem;
+  }
+
+}
+

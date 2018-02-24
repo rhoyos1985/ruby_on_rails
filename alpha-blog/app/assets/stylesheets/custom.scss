@@ -43,6 +43,7 @@ html,body{
   flex-shrink: 0;
   min-height: 64Px;
   max-height: 1000px;
+  margin-bottom: 1rem;
   position: relative;
   width: 100%;
 }
@@ -132,4 +133,22 @@ html,body{
   @extend .font_family_GHal, .blue-text, .text-darken-3;
 }
 
+.alb_no_padding_left{
+  padding-left: 0 !important;
+}
 
+.alb_no_padding{
+  padding: 0 !important;
+} 
+
+.alb_no_margin_bottom{
+  margin-bottom: 0 !important;
+}
+
+.alb_no_margin_top{
+  margin-top: 0 !important;
+}
+
+.alb_no_margin {
+  margin: 0 !important;
+}
