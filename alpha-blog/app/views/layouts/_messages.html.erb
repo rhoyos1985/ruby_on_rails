@@ -4,12 +4,12 @@
     <div class="alert <%= name %>">
       <div class="row alb_no_margin_bottom">
         <div class="col s1 m1">
-          <i class="material-icons alert_icon">error</i>
+          <%= content_tag(:i, name == "error" ? name : "check_circle", class: "material-icons alert_icon" ) %>
         </div>
         <div class="col s11 m11 alb_no_padding_left">
           <div class="row alb_no_margin_bottom">
             <div class="col s11 m11 alb_no_padding_left">
-              <h5 class="alert_title">Error</h5>
+              <h5 class="alert_title"> <%= name.mb_chars.capitalize.to_s %> </h5>
             </div>
             <div class="col s1 m1 alb_no_padding">
               <a href="#" class="close right" data-dismiss="alert"><i class="material-icons">close</i></a>
