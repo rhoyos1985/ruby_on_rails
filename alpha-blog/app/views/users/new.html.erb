@@ -1,0 +1,57 @@
+<% 
+  msg_username = ""
+  msg_email = ""
+  msg_password = ""
+  css_invalid_username = ""
+  css_invalid_email = ""
+  css_invalid_password = ""
+
+  if @user.errors.include?(:username)
+    msg_username = @username.errors.messages[:username].uniq.join(', ')
+    css_invalid_username = "invalid"
+  end
+
+  if @user.errors.include?(:email)
+    msg_email = @user.errors.messages[:email].uniq.join(', ')
+    css_invalid_email = "invalid"
+  end 
+
+  if @user.errors.include?(:password)
+    msg_password = @username.errors.messages[:password].uniq.join(', ')
+    css_invalid_password = "invalid"
+  end
+
+%>
+<h1 align="center">Signup for Alpha Blog</h1>
+<div class="row">
+  <div class="col s12">
+    <%= form_for(@user, :html => {role: "form"}) do |f| %>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <%= f.text_field :username, placeholder: "User name", class: "validate #{css_invalid_username}", autofocus: true %>
+          <label for="username" data-error="<%= msg_username %>">Username</label> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <%= f.email_field :email, placeholder: "E-mail", class: "validate #{css_invalid_email}", autofocus: true %>
+          <label for="email" data-error="<%= msg_email %>">E-mail</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <%= f.password_field :password, placeholder: "Password", class: "validate #{css_invalid_password}" %>
+          <label for="password", data-error="<%= msg_password %>">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m4">
+          <%= f.submit "Sign up", class: "btn btn-large blue" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col s4 m4 offset-m4"><%= link_to "Cancel request and return to articles listing", articles_path %></div>
+    </div>
+  </div>
+</div>
