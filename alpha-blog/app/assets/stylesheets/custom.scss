@@ -152,3 +152,7 @@ html,body{
 .alb_no_margin {
   margin: 0 !important;
 }
+
+.pagination li.active a {
+  color: #fff;
+}

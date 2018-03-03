@@ -1,0 +1,25 @@
+<div class="row">
+  <% obj.each do |article| %>
+  <div class="col s12 m6">
+    <div class="card blue darken-1">
+      <div class="card-content white-text">
+        <span class="card-title"> <%= article.title %> </span>
+        <p> <%= truncate(article.description, length: 100) %> </p>
+      </div>
+      <div class="alb_card_meta_details">
+        <small> Created by: <%= article.user.username if article.user %>, <%= time_ago_in_words(article.created_at) %> ago,
+                Last updated: <%= time_ago_in_words(article.updated_at) %> ago.
+        </small>
+      </div>
+      <div class="card-action">
+        <%= link_to "Show more", article_path(article), class: "btn wave-effect waves-light blue darken-4 white-text" %> 
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="col s12 m6">
+    <%= link_to(new_article_path, class: "btn-floating btn-large waves-effect waves-light blue") do  %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+</div>

@@ -1,3 +1,19 @@
+<% if @article.user %>
+  <div class="row center">
+    <div class="col s12 md4">
+      <ul class="listing">
+        <li>Created by:</li>
+        <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+        <li class="article-title">
+          <%= link_to @article.user.username, user_path(@article.user) %>
+        </li>
+        <li><small>
+            <%= pluralize(@article.user.articles.count, "article") if @article.user.articles %>
+          </small></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
 <div class="row">
   <div class="col s12 m10">
     <h2 class="alb_article_title"> <%= @article.title %> </h2>

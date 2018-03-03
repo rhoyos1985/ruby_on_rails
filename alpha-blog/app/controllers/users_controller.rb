@@ -16,8 +16,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+  
+  end
+  
   def edit
     
+  end
+
+  def index
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def update
@@ -30,8 +38,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-  
+  def show
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 5) 
   end
 
   private
