@@ -14,4 +14,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require materialize
+//= require custom
 //= require_tree .

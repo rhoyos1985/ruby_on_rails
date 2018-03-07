@@ -17,9 +17,11 @@
     </div>
   </div>
   <% end %>
+  <% if logged_in?%>
   <div class="col s12 m6">
     <%= link_to(new_article_path, class: "btn-floating btn-large waves-effect waves-light blue") do  %>
       <i class="material-icons">add</i>
     <% end %>
   </div>
+  <% end %>
 </div>

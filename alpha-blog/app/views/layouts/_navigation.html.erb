@@ -12,8 +12,24 @@
       <div class="nav-wrapper">
         <%= link_to 'Alpha Blog', root_path, class: "brand-logo font_family_GHal" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link_to 'Alpha-blog', articles_path %></li>
+          <li><%= link_to 'Articles', articles_path %>   
           <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'Users', users_path %>  
+          <% if logged_in? %>
+            <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+            <li>
+              <a class="dropdown-button" href="#!" data-activates= "userprofile">
+                  Profile <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+            <ul id="userprofile" class="dropdown-content">
+              <li><%= link_to 'Edit your profile', edit_user_path(current_user) %></li>
+              <li><%= link_to 'View your profile', user_path(current_user) %></li>
+            </ul>
+          <% else %>
+            <li><%= link_to 'Log in', login_path %></li>
+            <li><%= link_to 'Signup', signup_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>

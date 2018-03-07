@@ -1,0 +1,24 @@
+<h1 align="center">Log in</h1>
+<div class="row">
+  <div class="col s12"> 
+    <%= form_for(:session,  :html => {role: "form"}, url: login_path) do |f| %>
+      <div class="row">
+        <div class="input- field col s12 m12">
+          <label for="email" data-error="Error">E-mail</label>
+          <%= f.email_field  :email, placeholder: "Enter email", class: "validate", autofocus: true %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-fi eld col s12 m12">
+          <label for="password", data-error="Error">Password</label>
+          <%= f.password_field :password, placeholder: "Password", class: "validate", autocomplete: "false" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m4 ">
+          <%= f.submit "Login", class: "btn btn-large blue" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
