@@ -1,7 +1,7 @@
 <h1 align="center">All Alpha Bloggers</h1>
 <div class="row center">
   <%= will_paginate %>
-  <div class="col s12 m4">
+  <div class="col s12 m4 offset-m4">
     <ul class="collection">
       <% @users.each do |user| %>
       <li class="collection-item avatar">
@@ -10,6 +10,9 @@
         <p>
           <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
         </p>
+          <% if logged_in? and current_user.admin? %>
+            <p><%= link_to "Delete this user", user_path(user), method: :delete, data:{confirm: "Are you sure you want delete the user and all their articles"} %> </p>
+          <% end %>
       </li>
       <% end %>
     </ul>
