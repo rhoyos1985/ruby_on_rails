@@ -12,6 +12,7 @@
       <% @categories.each do |category| %>
       <div class="chip">
         <%= link_to category.name, category_path(category) %>
+        <small> <%= pluralize(category.articles.count, 'article') %> </small>
       </div>
       <% end %>
   </div>

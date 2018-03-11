@@ -1,0 +1,30 @@
+<% 
+  msg_category_name = ""
+  css_invalid_category_name = ""
+  
+  if @category.errors.include?(:name)
+    msg_category_name = @category.errors.messages[:name].uniq.join(', ')
+    msg_category_name = "invalid"
+  end
+%>
+
+<div class="row">
+  <div class="col s12">
+    <%= form_for(@category, :html => {role: "form"}) do |f| %>
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <%= f.text_field :name, placeholder: "Categoryname", class: "validate #{msg_category_name}", autofocus: true %>
+          <label for="name" data-error="<%= msg_category_name %>">Username</label> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m4">
+          <%= f.submit class: "btn btn-large blue" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col s4 m4 offset-m4"><%= link_to "Cancel request and return to articles listing", articles_path %></div>
+    </div>
+  </div>
+</div>
