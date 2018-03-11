@@ -1,12 +1,26 @@
 <h1 align="center">Listing All Categories </h1>
+<div class="row">
+  <div class="flickr_pagination">
+      <!-- <div class="page_info">
+        <% page_entries_info @categories %>
+      </div> -->
+      <%= will_paginate @categories, :container => false %>
+  </div>
+</div>
 <div class="row center">
   <div class="col s12 m4 offset-m4">
-    <ul class="collection">
       <% @categories.each do |category| %>
-      <li class="collection-item avatar">
-        <div class="title"><%= link_to category.name, category_path(category) %></div>
-      </li>
+      <div class="chip">
+        <%= link_to category.name, category_path(category) %>
+      </div>
       <% end %>
-    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="flickr_pagination">
+      <!-- <div class="page_info">
+        <% page_entries_info @categories %>
+      </div> -->
+      <%= will_paginate @categories, :container => false %>
   </div>
 </div>
